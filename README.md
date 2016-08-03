@@ -1,6 +1,6 @@
 # Car-Pooling
 Android app useful for car pooling
-Copyright (c) 2016 Pooja Mane Sriharsha Makineni
+Copyright (c) 2016 Pooja, Sriharsha 
 
 This project provides car pooling facility to help users.
 
