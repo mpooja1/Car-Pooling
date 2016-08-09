@@ -46,8 +46,7 @@ You can report the bugs in the following link: https://github.com/mpooja1/Car-Po
 
 #User Docs
 You can refer the user manaul documnet to get build instructions, prerequisites and info on API
-
-Usermanuallink
+https://github.com/mpooja1/Car-Pooling/blob/master/UserManual.docx
 
 #Final Presentation
 link
