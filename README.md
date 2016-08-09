@@ -40,9 +40,8 @@ You can report the bugs in the following link: https://github.com/mpooja1/Car-Po
 1.	Android Stdio - http://www.tutorialspoint.com/android/
 2.	https://developer.android.com/training/index.html
 3.	GoogleMaps: https://developers.google.com/maps/documentation/directions/intro ,
-4. https://developers.google.com/maps/documentation/android/start#getting_the_google_maps_android_api_v2
+4.  https://developers.google.com/maps/documentation/android/start#getting_the_google_maps_android_api_v2
 4.	Kinvey Database User guide : http://devcenter.kinvey.com/android/guides/users
-5.	Google: Added files from google Github for google maps custom marker https://github.com/googlemaps/android-maps-utils/tree/master/library/src/com/google/maps/android/ui
 
 #User Docs
 You can refer the user manaul documnet to get build instructions, prerequisites and info on API
