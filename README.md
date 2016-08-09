@@ -1,8 +1,8 @@
 # Car-Pooling
-Android app useful for car pooling
+Android app for car pooling
 Copyright (c) 2016 Pooja, Sriharsha 
 
-This project provides car pooling facility to help users.
+This project provides an android application to users who would like to car pool. This app makes their car-pooling much easier. 
 This project is licensed under the "MIT License". Please see the file COPYING in this distribution for license terms.
 
 #Project Description
@@ -19,7 +19,7 @@ This app allows users to update their personal information . It also help users 
 2.This app uses Kinvey mbaas database for storing the user aw well as ride details. 3. It needs username and password for for account creation on Kinvey
 
 #Source Code
-https://github.com/mpooja1/Car-Pooling
+https://github.com/sriharsha004/Car-Pooling
 
 #.apk File
 You can get the apk file from //provide link
@@ -44,14 +44,14 @@ You can report the bugs in the following link: https://github.com/mpooja1/Car-Po
 4.	Kinvey Database User guide : http://devcenter.kinvey.com/android/guides/users
 
 #User Docs
-You can refer the user manaul documnet to get build instructions, prerequisites and info on API
+You can refer the user manaul document to get build instructions, prerequisites and info on API
 https://github.com/mpooja1/Car-Pooling/blob/master/UserManual.docx
 
 #Final Presentation
-link
+https://github.com/sriharsha004/Car-Pooling/blob/master/CAR%20POOL.pptx
 
 #Author
 Pooja Mane & Sri Harsha
 
 #Contact Information
-You can email to pooja.mane22@gmail.com / hasriharsha004@gmail.com  if you have any queries on this project
+You can email to pooja.mane22@gmail.com / sriharsha004@gmail.com  if you have any queries on this project
