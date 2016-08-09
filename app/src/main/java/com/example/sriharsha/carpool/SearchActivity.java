@@ -16,6 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.kinvey.android.AsyncAppData;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyListCallback;
@@ -27,12 +31,14 @@ import com.kinvey.java.core.KinveyClientCallback;
  * This is a searchactivity
  */
 public class SearchActivity extends KinveyActivity {
-
+    private TextView get_place;
+    String address;
+    int PLACE_PICKER_REQUEST =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        final Button pickLocation = (Button)findViewById(R.id.btn_pick);
         final EditText Destination = (EditText) findViewById(R.id.edit_Dest);
 
         final Button SearchRide = (Button) findViewById(R.id.btn_Search);
@@ -52,7 +58,14 @@ public class SearchActivity extends KinveyActivity {
 
         });
 
+        pickLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayMap();
+            }
 
+
+        });
 
         assert SearchRide != null;
         SearchRide.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +103,45 @@ public class SearchActivity extends KinveyActivity {
 
     }
 
+
+    private void displayMap(){
+        get_place = (TextView)findViewById(R.id.textView9);
+        get_place.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                Intent intent;
+                try {
+                    intent = builder.build(getApplicationContext());
+                    startActivityForResult(intent,PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode == PLACE_PICKER_REQUEST)
+        {
+            if(resultCode==RESULT_OK){
+                Place place = PlacePicker.getPlace(data, this);
+                 address = String.format("Pickup Location: %s", place.getAddress());
+                get_place.setText(address);
+                setAddress(address);
+
+            }
+        }
+    }
     private void displayConfirmation(){
 
         RadioGroup radioGroup= (RadioGroup) findViewById(R.id.RadioButtonGroup);
@@ -101,6 +153,7 @@ public class SearchActivity extends KinveyActivity {
             //Toast.makeText(SearchActivity.this, text[5], Toast.LENGTH_SHORT).show();
             Intent myIntent = new Intent(this, RideConfirmation.class);
             myIntent.putExtra("RideDetails",selectedtext);
+            myIntent.putExtra("PickupLocation",address);
             startActivityForResult(myIntent, 0);
             finish();
 

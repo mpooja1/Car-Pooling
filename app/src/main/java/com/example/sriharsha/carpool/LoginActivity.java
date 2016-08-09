@@ -178,14 +178,16 @@ public class LoginActivity extends KinveyActivity {
            // toMainActivity();
             Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
             startActivity(intent);
-            Toast.makeText(LoginActivity.this, "Hooray! You're the user!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Hooray! Welcome!", Toast.LENGTH_SHORT).show();
             finish();
         }
 
         @Override
         public void onFailure(Throwable throwable) {
+            Intent intent = new Intent(LoginActivity.this,LoginActivity.class);
+            startActivity(intent);
             Toast.makeText(LoginActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
-
+            finish();
         }
     };
     /**
