@@ -22,7 +22,7 @@ This app allows users to update their personal information . It also help users 
 https://github.com/mpooja1/Car-Pooling
 
 #.apk File
-You can get the apk file from //provide link
+You can get the apk file from : https://github.com/sriharsha004/Car-Pooling/blob/master/app/CarPool.apk
 
 #License Information
 This work is available under the "MIT License". Please see the file COPYING in this distribution for license terms.
@@ -48,10 +48,10 @@ You can refer the user manaul documnet to get build instructions, prerequisites 
 https://github.com/mpooja1/Car-Pooling/blob/master/UserManual.docx
 
 #Final Presentation
-link
+https://github.com/sriharsha004/Car-Pooling/blob/master/CAR%20POOL.pptx
 
 #Author
-Pooja Mane & Sri Harsha
+Pooja Mane & Sriharsha
 
 #Contact Information
-You can email to pooja.mane22@gmail.com / hasriharsha004@gmail.com  if you have any queries on this project
+You can email to pooja.mane22@gmail.com / sriharsha004@gmail.com  if you have any queries on this project
