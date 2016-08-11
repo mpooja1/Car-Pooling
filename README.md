@@ -45,10 +45,10 @@ You can report the bugs in the following link: https://github.com/mpooja1/Car-Po
 
 #User Docs
 You can refer the user manaul documnet to get build instructions, prerequisites and info on API
-https://github.com/mpooja1/Car-Pooling/blob/master/UserManual.docx
+https://github.com/sriharsha004/Car-Pooling/blob/master/UserManual.pdf
 
 #Final Presentation
-https://github.com/sriharsha004/Car-Pooling/blob/master/CAR%20POOL.pptx
+https://github.com/mpooja1/Car-Pooling/blob/master/CAR%20POOL.pdf
 
 #Author
 Pooja Mane & Sriharsha
