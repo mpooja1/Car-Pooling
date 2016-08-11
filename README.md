@@ -3,7 +3,7 @@ Android app useful for car pooling
 Copyright (c) 2016 Pooja, Sriharsha 
 
 This project provides car pooling facility to help users.
-This project is licensed under the "MIT License". Please see the file COPYING in this distribution for license terms.
+This project is licensed under the "MIT License". Please see the file LICENSE in this distribution for license terms.
 
 #Project Description
 An open source android application which helps people in offering/selecting  rides to destination.
@@ -25,13 +25,13 @@ https://github.com/mpooja1/Car-Pooling
 You can get the apk file from : https://github.com/sriharsha004/Car-Pooling/blob/master/app/CarPool.apk
 
 #License Information
-This work is available under the "MIT License". Please see the file COPYING in this distribution for license terms.
+This work is available under the "MIT License". Please see the file LICENSE in this distribution for license terms.
 
 #Bug or Issue Tracker
 You can report the bugs in the following link: https://github.com/mpooja1/Car-Pooling/issues
 
 #Future Enhancements
-1.	Add maps functionality
+1.	Add maps functionality for showing available routes
 2.	Get real time vehicle data for paid/free service
 3.	Integrate with a pay service
 4.	Introduce reward points to increase the number of customers
