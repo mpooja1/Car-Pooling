@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.content.Intent;
@@ -9,13 +15,28 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.api.client.json.GenericJson;
 import com.kinvey.android.AsyncAppData;
 import com.kinvey.android.Client;
 import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
 
+/**
+ * This class is used to offer rides from particular source to destination at specific time
+ */
+
 public class OfferActivity extends KinveyActivity {
     String user;
+    String to;
+    String rt;
+    String body = " ";
+
+    /**
+     * This method is used to set layout for offer ride screen
+     * It saves the offered ride in database
+     * It sends mail to user regarding ride offer
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +52,10 @@ public class OfferActivity extends KinveyActivity {
         final TextView CarNo = (TextView)findViewById(R.id.editText_CarNo);
         final Button offerRide = (Button)findViewById(R.id.btn_ofr);
         final Button cancel = (Button)findViewById(R.id.btn_Cancel);
+
+        final String sub = "Ride details ";
+
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
 
@@ -49,11 +74,19 @@ public class OfferActivity extends KinveyActivity {
             @Override
             public void onClick(final View v) {
                 RideInfo rideInfo = new RideInfo();
-
+                to = user;
+                rt = user;
+                String to2 = "";
+                body = " from "+sourceText.getText().toString()+" to "+destinationText.getText().toString()+" at time "+timeText.getText().toString();
               /*Client kinveyClient = new Client.Builder("kid_SyYWFh5d",//APP_ID
                       "0b1538e57dfb46da87b5da42516501ff",//APP_SECRET
                       getApplicationContext()).build();*/
                 RideInfo ride = new RideInfo();
+                ride.setTo(to);
+                ride.setBody(body);
+                ride.setReplyTo(rt);
+                ride.setTo2(to2);
+                ride.setSubject(sub);
                 ride.setSource(sourceText.getText().toString());
                 ride.setDestination(destinationText.getText().toString());
                 ride.setRideTime(timeText.getText().toString());
@@ -79,6 +112,10 @@ public class OfferActivity extends KinveyActivity {
                         Log.e("TAG", "failed to save", error);
                     }
                 });
+
+
+
+
             }
         });
     }

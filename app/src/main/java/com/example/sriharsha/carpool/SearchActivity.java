@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.app.DownloadManager;
@@ -16,6 +22,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.kinvey.android.AsyncAppData;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyListCallback;
@@ -24,15 +34,26 @@ import com.kinvey.java.core.KinveyClientCallback;
 
 
 /**
- * This is a searchactivity
+ * This class is used to search rides available to specific destination
+ * It takes the current location details and allows user to book selected ride
  */
 public class SearchActivity extends KinveyActivity {
+    private TextView get_place;
+    String address;
+    int PLACE_PICKER_REQUEST =1;
 
+    /**
+     * This method is used to set layout for search screen to be displayed
+     * It displays all the available ride to destination
+     * It allows users to set pickup location
+     * It allows user to book ride
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        final Button pickLocation = (Button)findViewById(R.id.btn_pick);
         final EditText Destination = (EditText) findViewById(R.id.edit_Dest);
 
         final Button SearchRide = (Button) findViewById(R.id.btn_Search);
@@ -52,7 +73,14 @@ public class SearchActivity extends KinveyActivity {
 
         });
 
+        pickLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayMap();
+            }
 
+
+        });
 
         assert SearchRide != null;
         SearchRide.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +118,68 @@ public class SearchActivity extends KinveyActivity {
 
     }
 
+
+    /**
+     * This method is used to display maps and show current pickup location on screen
+     */
+    private void displayMap(){
+        get_place = (TextView)findViewById(R.id.textView9);
+        get_place.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                Intent intent;
+                try {
+                    intent = builder.build(getApplicationContext());
+                    startActivityForResult(intent,PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * This method is used to set address of pickup location
+     * @param address address of pick up location
+     */
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    /**
+     * This method is used to get address of pick up location
+     * @return address
+     */
+    public String getAddress(){
+        return address;
+    }
+
+    /**
+     * This method is  used to get lpickup location from maps and set it to address
+     * @param requestCode request code
+     * @param resultCode result code
+     * @param data data fetched
+     */
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode == PLACE_PICKER_REQUEST)
+        {
+            if(resultCode==RESULT_OK){
+                Place place = PlacePicker.getPlace(data, this);
+                 address = String.format("Pickup Location: %s", place.getAddress());
+                get_place.setText(address);
+                setAddress(address);
+
+            }
+        }
+    }
+
+    /**
+     * This method is used to select ride that are available to specific destination in the form of radio buttons
+     */
     private void displayConfirmation(){
 
         RadioGroup radioGroup= (RadioGroup) findViewById(R.id.RadioButtonGroup);
@@ -101,6 +191,7 @@ public class SearchActivity extends KinveyActivity {
             //Toast.makeText(SearchActivity.this, text[5], Toast.LENGTH_SHORT).show();
             Intent myIntent = new Intent(this, RideConfirmation.class);
             myIntent.putExtra("RideDetails",selectedtext);
+            myIntent.putExtra("PickupLocation",address);
             startActivityForResult(myIntent, 0);
             finish();
 
@@ -112,6 +203,10 @@ public class SearchActivity extends KinveyActivity {
 
     }
 
+    /**
+     * This method is used to display all the rides available to specific destination
+     * @param rideInfos all the rides that are available
+     */
     private void addRadioButton(RideInfo[] rideInfos) {
 
         RadioGroup radioGroup= (RadioGroup) findViewById(R.id.RadioButtonGroup);

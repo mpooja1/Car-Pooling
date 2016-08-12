@@ -1,9 +1,18 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
+/**
+ * This class is used to access values in database for user profiles
+ */
 public class User_Profile extends GenericJson { // For Serialization
 
     @Key("_id")

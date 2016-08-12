@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2016 Pooja, SriHarsha
+  This code is available under the "MIT License".
+  Please see the file LICENSE in this distribution
+  for license terms.
+  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#d9ffb3">
 
     <TextView
         android:layout_width="wrap_content"
