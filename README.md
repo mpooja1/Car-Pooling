@@ -9,10 +9,12 @@ This project is licensed under the "MIT License". Please see the file LICENSE in
 #Project Description
 An open source android application which helps people in offering/selecting  rides to destination.
 This app allows users to register using email id and login. 
-It provides users with mainly three options –
-1.	Update Profile
-2.	Offer Rides
-3.	Search Rides
+It provides users with mainly three options
+
+1. Update Profile
+2. Offer Rides
+3. Search Rides
+
 This app allows users to update their personal information . It also help users in offering rides to particular destination . Along with that it also allows user to search for any rides to particular destination, book specific rides and receive all the information using emails. 
 
 #Technical Details
