@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
+
 package com.example.sriharsha.carpool;
 
 import android.content.Intent;
@@ -6,12 +13,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * This class is used to display home screen of car pool application
+ * All the main navigating functionalities of search a ride , book a ride , update ride are handled through this class
+ */
+
 public class HomeActivity extends AppCompatActivity {
     private Button search;
     private Button ofrRide;
     private Button logout;
     private Button update;
 
+    /**
+     * This function is used to set home layout screen and handle button click for update , search and book ride
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

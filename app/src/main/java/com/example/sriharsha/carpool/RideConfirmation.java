@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja,SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.content.Intent;
@@ -14,8 +20,17 @@ import com.kinvey.android.callback.KinveyListCallback;
 import com.kinvey.java.Query;
 import com.kinvey.java.core.KinveyClientCallback;
 
+/**
+ * This class is used to display ride confirmation message and confirm ride in database and send emails accordingly
+ */
 public class RideConfirmation extends KinveyActivity {
 TextView textView;
+
+    /**
+     * This method is used to set layout for ride details screen
+     * It books the selected ride from database , display it on screen and send email
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,18 +58,12 @@ TextView textView;
                 myQuery.equals("RideTime", time.toString());
                 myQuery.equals("CarNumber", carno.toString());
 
-      /*  Toast.makeText(RideConfirmation.this,source, Toast.LENGTH_SHORT).show();
-        Toast.makeText(RideConfirmation.this,destination, Toast.LENGTH_SHORT).show();
-        Toast.makeText(RideConfirmation.this, time, Toast.LENGTH_SHORT).show();
-        Toast.makeText(RideConfirmation.this,carno, Toast.LENGTH_SHORT).show();*/
-
-
                 final AsyncAppData<RideInfo> myData = getClient().appData("RideInfo", RideInfo.class);
                 myData.get(myQuery, new KinveyListCallback<RideInfo>() {
 
                     @Override
                     public void onSuccess(RideInfo[] rideInfos) {
-                        //Toast.makeText(RideConfirmation.this, String.valueOf(rideInfos.length), Toast.LENGTH_SHORT).show();
+
                         if (rideInfos.length > 0) {
                             textView.setText("\nRIDE DETAILS\n\nDriver Details -" + rideInfos[0].getUserID() + "\nPHONE NO-" + rideInfos[0].getPhone_Num() +
                                     "\nCAR NO- " + rideInfos[0].getCar_Num() + "\nSource- " + rideInfos[0].getSource() + "\nDestination- "
@@ -66,9 +75,7 @@ TextView textView;
                          String to2 = getClient().user().toString();
                           String  rt = getClient().user().toString();
                            String body = " from "+rideInfos[0].getSource().toString()+" to "+rideInfos[0].getDestination().toString()+" at time "+rideInfos[0].getRideTime().toString() +"\n\n"+pickupAddress;
-              /*Client kinveyClient = new Client.Builder("kid_SyYWFh5d",//APP_ID
-                      "0b1538e57dfb46da87b5da42516501ff",//APP_SECRET
-                      getApplicationContext()).build();*/
+
                             RideInfo ride = new RideInfo();
                             ride.setTo(to);
                             ride.setTo2(to2);

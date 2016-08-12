@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.content.Intent;
@@ -24,6 +30,13 @@ public class OfferActivity extends KinveyActivity {
     String to;
     String rt;
     String body = " ";
+
+    /**
+     * This method is used to set layout for offer ride screen
+     * It saves the offered ride in database
+     * It sends mail to user regarding ride offer
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

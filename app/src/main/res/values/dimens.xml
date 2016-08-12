@@ -1,3 +1,9 @@
+<!--
+  Copyright (c) 2016 Pooja, SriHarsha
+  This code is available under the "MIT License".
+  Please see the file LICENSE in this distribution
+  for license terms.
+  -->
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>

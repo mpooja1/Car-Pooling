@@ -1,13 +1,22 @@
-package com.example.sriharsha.carpool;
-
 /**
- * Created by sriharsha on 7/30/2016.
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
  */
+
+package com.example.sriharsha.carpool;
 import android.app.Application;
 
 import com.kinvey.android.Client;
 
+/**
+ * Created by sriharsha on 7/30/2016.
+ */
 
+/**
+ * This class establishes the conneciton with the Kinvey mBass
+ */
 public class MainApplication extends Application {
     private Client client;
 

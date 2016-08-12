@@ -1,3 +1,9 @@
+<!--
+  Copyright (c) 2016 Pooja, SriHarsha
+  This code is available under the "MIT License".
+  Please see the file LICENSE in this distribution
+  for license terms.
+  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"

@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.app.DownloadManager;
@@ -28,12 +34,21 @@ import com.kinvey.java.core.KinveyClientCallback;
 
 
 /**
- * This is a searchactivity
+ * This class is used to search rides available to specific destination
+ * It takes the current location details and allows user to book selected ride
  */
 public class SearchActivity extends KinveyActivity {
     private TextView get_place;
     String address;
     int PLACE_PICKER_REQUEST =1;
+
+    /**
+     * This method is used to set layout for search screen to be displayed
+     * It displays all the available ride to destination
+     * It allows users to set pickup location
+     * It allows user to book ride
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +119,9 @@ public class SearchActivity extends KinveyActivity {
     }
 
 
+    /**
+     * This method is used to display maps and show current pickup location on screen
+     */
     private void displayMap(){
         get_place = (TextView)findViewById(R.id.textView9);
         get_place.setOnClickListener(new View.OnClickListener() {
@@ -123,13 +141,29 @@ public class SearchActivity extends KinveyActivity {
             }
         });
     }
+
+    /**
+     * This method is used to set address of pickup location
+     * @param address address of pick up location
+     */
     public void setAddress(String address){
         this.address = address;
     }
 
+    /**
+     * This method is used to get address of pick up location
+     * @return address
+     */
     public String getAddress(){
         return address;
     }
+
+    /**
+     * This method is  used to get lpickup location from maps and set it to address
+     * @param requestCode request code
+     * @param resultCode result code
+     * @param data data fetched
+     */
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         if(requestCode == PLACE_PICKER_REQUEST)
         {
@@ -142,6 +176,10 @@ public class SearchActivity extends KinveyActivity {
             }
         }
     }
+
+    /**
+     * This method is used to select ride that are available to specific destination in the form of radio buttons
+     */
     private void displayConfirmation(){
 
         RadioGroup radioGroup= (RadioGroup) findViewById(R.id.RadioButtonGroup);
@@ -165,6 +203,10 @@ public class SearchActivity extends KinveyActivity {
 
     }
 
+    /**
+     * This method is used to display all the rides available to specific destination
+     * @param rideInfos all the rides that are available
+     */
     private void addRadioButton(RideInfo[] rideInfos) {
 
         RadioGroup radioGroup= (RadioGroup) findViewById(R.id.RadioButtonGroup);

@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016 Pooja, SriHarsha
+ * This code is available under the "MIT License".
+ * Please see the file LICENSE in this distribution
+ * for license terms.
+ */
 package com.example.sriharsha.carpool;
 
 import android.content.Intent;
@@ -16,12 +22,16 @@ import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
 
 /**
- * Created by sriharsha on 8/2/2016.
+ * This class used to update information of user as like password , car no and mobile no
  */
 public class UpdateActivity extends KinveyActivity {
 
     String user;
 
+    /**
+     * This method is used to set layout for update screen that allows user to update information
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
