@@ -1,4 +1,4 @@
-# Car-Pooling
+# Car Pool
 An Android app for making car pooling much easier
 Copyright (c) 2016 Pooja, Sriharsha 
 
