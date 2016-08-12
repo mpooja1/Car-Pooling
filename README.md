@@ -1,5 +1,6 @@
 # Car Pool
 An Android app for making car pooling much easier
+
 Copyright (c) 2016 Pooja, Sriharsha 
 
 This project provides car pooling facility to help users.
@@ -15,9 +16,9 @@ It provides users with mainly three options –
 This app allows users to update their personal information . It also help users in offering rides to particular destination . Along with that it also allows user to search for any rides to particular destination, book specific rides and receive all the information using emails. 
 
 #Technical Details
-1.This app was developed in Android with API target 22 (5.1.1) Lollipop and tested in Marshmallow (6.0) 
-2.This app uses Kinvey mBaaS for storing the user as well as ride information. 
-3.It needs username and password to create an account on Kinvey, by which the user will be able to use get an APP KEY and APP SECRET to be used in the project to access the data. 
+1. This app was developed in Android with API target 22 Android 5.1.1 and tested in Android 5.1.1 
+2. This app uses Kinvey mBaaS for storing the user as well as ride information. 
+3. It needs username and password to create an account on Kinvey, by which the user will be able to use get an APP KEY and APP SECRET to be used in the project to access the data. 
 
 #Source Code
 https://github.com/sriharsha004/Car-Pooling
